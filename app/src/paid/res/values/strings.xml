@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">WallpaperGallery</string>
+    <string name="start_label">Inizio</string>
+    <string name="stop_label">Fine</string>
+    <string name="finish">Nascondi</string>
+    <string name="delay_preference">Delay</string>
+    <string name="settings_label">Impostazioni</string>
+
+</resources>

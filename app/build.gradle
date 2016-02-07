@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 'Google Inc.:Google APIs:21'
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.posbeu.screenswitcher2"
+        minSdkVersion 16
+        targetSdkVersion 16
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    signingConfigs {
+
+        signing {
+            storeFile file("/home/giovanni/keystore") //Path to the keystore file
+            keyAlias "wallpapergallery"
+            storePassword "zaq12wsxcde3"
+            keyPassword "zaq12wsxcde3"
+        }
+
+
+    }
+    productFlavors {
+        free {
+            signingConfig signingConfigs.signing
+            buildConfigField "boolean", "HAS_PAYMENT", "false"
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFile = new File(
+                            output.outputFile.parent,
+                            output.outputFile.name.replace(".apk", "-${variant.versionName}.apk"))
+                }
+            }
+        }
+
+        paid {
+            signingConfig signingConfigs.signing
+            buildConfigField "boolean", "HAS_PAYMENT", "true"
+
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFile = new File(
+                            output.outputFile.parent,
+                            output.outputFile.name.replace(".apk", "-${variant.versionName}.apk"))
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:21.0.3'
+}
