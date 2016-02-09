@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 'Google Inc.:Google APIs:21'
+    compileSdkVersion 16
     buildToolsVersion "21.1.2"
 
     defaultConfig {
@@ -17,13 +17,18 @@ android {
         }
     }
     signingConfigs {
-
         signing {
-            storeFile file("/home/giovanni/keystore") //Path to the keystore file
+            storeFile file("C:\\Users\\IBM_ADMIN\\android.jks") //Path to the keystore file
             keyAlias "wallpapergallery"
             storePassword "zaq12wsxcde3"
             keyPassword "zaq12wsxcde3"
         }
+    /*    signing {
+           storeFile file("/home/giovanni/keystore") //Path to the keystore file
+            keyAlias "wallpapergallery"
+            storePassword "zaq12wsxcde3"
+            keyPassword "zaq12wsxcde3"
+        }*/
 
 
     }
@@ -31,7 +36,6 @@ android {
         free {
             signingConfig signingConfigs.signing
             buildConfigField "boolean", "HAS_PAYMENT", "false"
-
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
                     output.outputFile = new File(
@@ -39,13 +43,13 @@ android {
                             output.outputFile.name.replace(".apk", "-${variant.versionName}.apk"))
                 }
             }
+            minSdkVersion 16
+            applicationId 'com.posbeu.screenswitcher2'
+            targetSdkVersion 16
         }
-
         paid {
             signingConfig signingConfigs.signing
             buildConfigField "boolean", "HAS_PAYMENT", "true"
-
-
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
                     output.outputFile = new File(
@@ -53,6 +57,9 @@ android {
                             output.outputFile.name.replace(".apk", "-${variant.versionName}.apk"))
                 }
             }
+            minSdkVersion 16
+            applicationId 'com.posbeu.screenswitcher2'
+            targetSdkVersion 16
         }
     }
 }

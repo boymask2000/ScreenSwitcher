@@ -243,10 +243,12 @@ int num=0;
             try {
                 job();
                 Thread.sleep(delay * 1000);
+                if( !Heap.isStop())
                 handler.sendEmptyMessage(0);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            if( Heap.isStop())stopSelf();
         }
     };
 }

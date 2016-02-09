@@ -2,25 +2,25 @@
 <items version="2" >
 
     <item
-        jar="/home/giovanni/Desktop/ScreenSwitcher_new/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/jars/libs/internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/home/giovanni/Desktop/ScreenSwitcher_new/app/build/intermediates/pre-dexed/free/release/internal_impl-21.0.3-b082be21e2e12e536bc2ba4375e8599c5d9e50ed.jar" />
-    </item>
-    <item
-        jar="/home/giovanni/Desktop/ScreenSwitcher_new/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/jars/classes.jar"
+        jar="C:\Users\IBM_ADMIN\StudioProjects\ScreenSwitcher\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/home/giovanni/Desktop/ScreenSwitcher_new/app/build/intermediates/pre-dexed/free/release/classes-a9f4e2a9929868fa84cb6912e3f18f00e94b09d8.jar" />
+        <dex dex="C:\Users\IBM_ADMIN\StudioProjects\ScreenSwitcher\app\build\intermediates\pre-dexed\free\release\classes-a9ca2025b77784e5c8acff326e16a4ddf37247e2.jar" />
     </item>
     <item
-        jar="/home/giovanni/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jar="C:\Users\IBM_ADMIN\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/home/giovanni/Desktop/ScreenSwitcher_new/app/build/intermediates/pre-dexed/free/release/support-annotations-21.0.3-9451280946ab5003a79445bf93ad885a8e09d75e.jar" />
+        <dex dex="C:\Users\IBM_ADMIN\StudioProjects\ScreenSwitcher\app\build\intermediates\pre-dexed\free\release\support-annotations-21.0.3-f1eaa9d971f9a1547128c9e9abbaabfb6c473017.jar" />
+    </item>
+    <item
+        jar="C:\Users\IBM_ADMIN\StudioProjects\ScreenSwitcher\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\IBM_ADMIN\StudioProjects\ScreenSwitcher\app\build\intermediates\pre-dexed\free\release\internal_impl-21.0.3-3da5724f3316d7158a3940fae916fcef2fd391c9.jar" />
     </item>
 
 </items>
