@@ -3,7 +3,6 @@ package com.posbeu.screenswitcher2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -34,13 +33,13 @@ public class ScreenSwitcherActivity extends Activity implements OnClickListener 
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.start_button:
-            Log.d("Premuto Start", " ");
+
 			Heap.setStop(false);
 			startService(new Intent(this, Switcher.class));
 
 			break;
 		case R.id.stop_button:
-            Log.d("Premuto Stop", " ");
+
 			Heap.setStop(true);
 		//	stopService(new Intent(this, Switcher.class));
 			break;

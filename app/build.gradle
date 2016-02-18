@@ -17,18 +17,20 @@ android {
         }
     }
     signingConfigs {
+        /*
+    }
         signing {
-            storeFile file("C:\\Users\\IBM_ADMIN\\android.jks") //Path to the keystore file
-            keyAlias "wallpapergallery"
-            storePassword "zaq12wsxcde3"
-            keyPassword "zaq12wsxcde3"
-        }
-    /*    signing {
-           storeFile file("/home/giovanni/keystore") //Path to the keystore file
+
             keyAlias "wallpapergallery"
             storePassword "zaq12wsxcde3"
             keyPassword "zaq12wsxcde3"
         }*/
+        signing {
+           storeFile file("/home/giovanni/keystore") //Path to the keystore file
+            keyAlias "wallpapergallery"
+            storePassword "zaq12wsxcde3"
+            keyPassword "zaq12wsxcde3"
+        }
 
 
     }

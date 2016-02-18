@@ -15,7 +15,6 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.provider.MediaStore.MediaColumns;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -29,7 +28,7 @@ import java.util.Random;
 public class Switcher extends Service {
     private Random rand = new Random();
     private List<String> lista;
-    private int delay;
+    private int delay = 10;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -45,6 +44,10 @@ public class Switcher extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         String delay = PreferencesActivity.getDelay(this);
         lista = getAllShownImagesPath();
+        if (lista.size() == 0) {
+            stopSelf();
+            return START_STICKY;
+        }
         // Let it continue running until it is stopped.
         ThreadDemo td = new ThreadDemo();
         setDelay(delay);
@@ -84,36 +87,28 @@ public class Switcher extends Service {
         delay = Integer.parseInt(sdelay);
 
     }
-int num=0;
+
+    private int num = 0;
+
     private void job() throws FileNotFoundException {
 
         int size = lista.size();
 
-      if( num>=size)num=0;
-        Log.d("ww", size + " " + num);
+        if (num >= size) num = 0;
+
         FileInputStream is = new FileInputStream(lista.get(num++));
 
         if (BuildConfig.HAS_PAYMENT) {
             processImagePaid(is);
         } else processImageFree(is);
 
+        try {
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
-    private void job0() throws FileNotFoundException {
-
-        int size = lista.size();
-
-        int num = randInt(0, size - 1);
-        Log.d("ww", size + " " + num);
-        FileInputStream is = new FileInputStream(lista.get(num));
-
-        if (BuildConfig.HAS_PAYMENT) {
-            processImagePaid(is);
-        } else processImageFree(is);
-
-
-    }
-
 
     private void processImageFree(FileInputStream is) {
         WallpaperManager myWallpaperManager = WallpaperManager
@@ -132,12 +127,12 @@ int num=0;
 
         Bitmap bmap2 = BitmapFactory.decodeStream(is);
 
-        Bitmap bitmap =ImageProcessor.scale(this, is) ;
+        Bitmap bitmap = ImageProcessor.scale(this, is);
 
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(getApplicationContext());
         try {
             wallpaperManager.setBitmap(bmap2);
-        //    wallpaperManager.suggestDesiredDimensions(width, height);
+            //    wallpaperManager.suggestDesiredDimensions(width, height);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -243,12 +238,12 @@ int num=0;
             try {
                 job();
                 Thread.sleep(delay * 1000);
-                if( !Heap.isStop())
-                handler.sendEmptyMessage(0);
+                if (!Heap.isStop())
+                    handler.sendEmptyMessage(0);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if( Heap.isStop())stopSelf();
+            if (Heap.isStop()) stopSelf();
         }
     };
 }
